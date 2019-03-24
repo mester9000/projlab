@@ -1,9 +1,11 @@
 package com.company;
 
+import java.lang.annotation.Target;
 import java.util.Scanner;
 
 public class Main {
     private static int c=0;
+    public static int TABULATORS = 0;
     private static Scanner scan;
     private static Map map;
     public static void main(String[] args) {
@@ -15,9 +17,9 @@ public class Main {
 
     }
     private static void mainMenu(){
-        System.out.println("1. Orángután lépés");
-        System.out.println("2. Panda lépés");
-        System.out.println("3. Mezők cselekvéssel");
+        writeConsole("1. Orángután lépés");
+        writeConsole("2. Panda lépés");
+        writeConsole("3. Mezők cselekvéssel");
         c=scanChar();
 
         switch (c){
@@ -93,7 +95,8 @@ public class Main {
 
 
     private static void orangutanOnPanda(){
-        map.clear();
+        map.animals.clear();
+        map.simpleFields.clear();
         map.animals.add(new Orangutan());
         map.animals.add(new Lazy());
         map.simpleFields.add(new SimpleField());
@@ -102,7 +105,8 @@ public class Main {
         map.animals.get(0).step(map.simpleFields.get(1));
     }
     private static void orangutanOnOrangutan(){
-        map.clear();
+        map.animals.clear();
+        map.simpleFields.clear();
         map.animals.add(new Orangutan());
         map.animals.add(new Orangutan());
         map.simpleFields.add(new SimpleField());
@@ -111,7 +115,8 @@ public class Main {
         map.animals.get(0).step(map.simpleFields.get(1));
     }
     private static void orangutanOnArmchair(){
-        map.clear();
+        map.animals.clear();
+        map.simpleFields.clear();
         map.animals.add(new Orangutan());
         map.simpleFields.add(new SimpleField());
         map.simpleFields.add(new Armchair());
@@ -119,7 +124,8 @@ public class Main {
         map.animals.get(0).step(map.simpleFields.get(1));
     }
     private static void orangutanOnChocolatemachine(){
-        map.clear();
+        map.animals.clear();
+        map.simpleFields.clear();
         map.animals.add(new Orangutan());
         map.simpleFields.add(new SimpleField());
         map.simpleFields.add(new Chocolatemachine());
@@ -127,7 +133,8 @@ public class Main {
         map.animals.get(0).step(map.simpleFields.get(1));
     }
     private static void orangutanOnSlotmachine(){
-        map.clear();
+        map.animals.clear();
+        map.simpleFields.clear();
         map.animals.add(new Orangutan());
         map.simpleFields.add(new SimpleField());
         map.simpleFields.add(new Slotmachine());
@@ -135,7 +142,8 @@ public class Main {
         map.animals.get(0).step(map.simpleFields.get(1));
     }
     private static void orangutanOnCabinet(){
-        map.clear();
+        map.animals.clear();
+        map.simpleFields.clear();
         map.animals.add(new Orangutan());
         map.simpleFields.add(new SimpleField());
         Cabinet a = new Cabinet();
@@ -153,7 +161,10 @@ public class Main {
 
     private static void setMap(){
         map.simpleFields.get(0).myAnimal = map.animals.get(0);
+        map.animals.get(0).mySimpleField =map.simpleFields.get(0);
+        map.simpleFields.get(0).myAnimal = map.animals.get(0);
         if(map.animals.size()!=1) {
+            map.animals.get(1).mySimpleField = map.simpleFields.get(1);
             map.simpleFields.get(1).myAnimal = map.animals.get(1);
         }
         map.simpleFields.get(0).neighbours.add(map.simpleFields.get(1));
@@ -181,5 +192,15 @@ public class Main {
     }
     private static void writeConsole(String text){
         System.out.println(text);
+    }
+
+
+    public static void log(String text){
+        for(int i =0;i<TABULATORS;i++){
+            System.out.print("\t");
+        }
+        System.out.print(text+"\n");
+        TABULATORS++;
+
     }
 }

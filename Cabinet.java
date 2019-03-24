@@ -5,12 +5,16 @@ public class Cabinet extends SimpleField {
 	public Cabinet pair;
 
 	public boolean accept(Animal a) {
-	    System.out.println("Cabinet.accept.step");
+	    Main.log("Cabinet.accept(Animal a)");
+
+        a.mySimpleField.clear();
+	    pair.setAnimal(a);
 		return  false;
 	}
 
     @Override
     public void setAnimal(Animal a) {
-        pair.setAnimal(a);
+        super.setAnimal(a);
+        Main.log("Cabinet.pair.setAnimal(Animal a)");
     }
 }

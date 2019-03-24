@@ -1,7 +1,7 @@
 package com.company;
 
 public abstract class Animal {
-	protected SimpleField mySimpleField;
+	public SimpleField mySimpleField;
 	private Panda nextPanda;
 	public abstract void kill();
 	public abstract void step(SimpleField s);
