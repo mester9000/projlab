@@ -4,7 +4,7 @@ package com.company;
 
 import java.util.*;
 
-public class Map extends SimpleField {
+/*public class Map extends SimpleField {
 	private int players;
 	public ArrayList<Animal> animals= new ArrayList<>();
 	public ArrayList<SimpleField> simpleFields = new ArrayList<>();
@@ -45,10 +45,54 @@ public class Map extends SimpleField {
 		//TODO valahgyan be kell állítani, a szomszédokat is majd.
 		//TODO az állatokat rá kell tenni a pályára
 
+	}*/
+	
+	//Javított verzió
+	public class Map{
+		private int players;
+		public ArrayList<Animal> animals= new ArrayList<>();
+		public ArrayList<SimpleField> simpleFields = new ArrayList<>();
+		public void init(int SimpleFields, int WeakTiles, int numOfPlayers){
+			
+			players = numOfPlayers;
+			
+			//Entrance a 0. eleme a SimpleFields-nek
+			simpleFields.add(new Entrance());
+			
+			for(int i = 0; i < 3; i++)
+				animals.add(new Scary());
+			
+			for(int i = 0; i < 3; i++)
+				animals.add(new Lazy());
+			
+			for(int i = 0; i < 3; i++)
+				animals.add(new Shy());
+			
+			for(int i = 0; i < numOfPlayers; i++)
+				animals.add(new Orangutan());
+			
+			for(int i = 0; i < SimpleFields; i++)
+				simpleFields.add(new SimpleField());
+			
+			for(int i = 0; i < WeakTiles; i++)
+				simpleFields.add(new WeakTile());
+			
+			for(int i = 0; i < 3; i++)
+				simpleFields.add(new Chocolatemachine());
+			
+			for(int i = 0; i < 3; i++)
+				simpleFields.add(new Slotmachine());
+			
+			for(int i = 0; i < 3; i++)
+				simpleFields.add(new Armchair());
+			
+			for(int i = 0; i < 3; i++)
+				simpleFields.add(new SimpleField());
+		
 	}
 	
 	public void endGame() {
-		if(animals.isEmpty() || simpleFields.isEmpty() || players==0){
+		if(animals.size() == 0 || simpleFields.size() == 0 || players==0){
 			System.out.println("Vege a jateknak"); //TODO ide nem ez kell majd +feltételek nem biztos hogy megfelelőek
 		}
 	}
