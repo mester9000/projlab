@@ -8,7 +8,7 @@ import com.company.Entrance;
 public class Orangutan extends Animal {
 	private int points=0;
 	private boolean alive=true;
-	public Entrance EntrancePLace;
+	public Entrance EntrancePlace;
 	public void catchPanda(Panda p) {
 	}
 	
