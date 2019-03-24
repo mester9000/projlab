@@ -10,7 +10,9 @@ public abstract class Panda extends Animal {
 	public void unleashHand(){
 	}
 
-	public abstract void act(SimpleField s);
+	public void act(SimpleField s){
+		
+	}
 	
 	public void kill() {
 	}

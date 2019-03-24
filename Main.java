@@ -3,12 +3,13 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    static int c=0;
-    static Scanner scan;
+    private static int c=0;
+    private static Scanner scan;
+    private static Map map;
     public static void main(String[] args) {
         scan = new Scanner(System.in);
-        Map map = new Map();
-        map.init(4,100,20); //TODO ez majd más lesz
+        map = new Map();
+
         mainMenu();
         //TODO("FONTOS") breakek a usecasek végén
 
@@ -44,7 +45,7 @@ public class Main {
 
         c=scanChar();
         switch (c){
-            case 1:
+            case 1: orangutanOnOrangutan();
             case 2:
         }
     }
@@ -107,5 +108,17 @@ public class Main {
     }
     private static void writeConsole(String text){
         System.out.println(text);
+    }
+    private static void orangutanOnOrangutan(){
+        map.animals.add(new Orangutan());
+        map.animals.add(new Lazy());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.get(0).myAnimal = map.animals.get(0);
+        map.simpleFields.get(1).myAnimal = map.animals.get(1);
+        map.simpleFields.get(0).neighbours.add(map.simpleFields.get(1));
+        map.simpleFields.get(1).neighbours.add(map.simpleFields.get(0));
+        map.animals.get(0).step(map.simpleFields.get(1));
+
     }
 }

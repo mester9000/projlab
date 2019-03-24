@@ -4,7 +4,7 @@ public abstract class Animal {
 	protected SimpleField mySimpleField;
 	private Panda nextPanda;
 	public abstract void kill();
-	public abstract void step();
+	public abstract void step(SimpleField s);
 	public abstract void addPoints();
 	public abstract void act(SimpleField s);
 }

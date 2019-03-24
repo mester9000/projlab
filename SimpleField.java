@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class SimpleField {
 	protected Animal myAnimal=null; //kezdetben semelyik fielden nem áll állat
-	private ArrayList<SimpleField> neighbours =new ArrayList<>();
+	protected ArrayList<SimpleField> neighbours =new ArrayList<>();
 	public boolean accept(Animal a) {
-	    return false;
+		return this.myAnimal == null;
 	}
 	
 	public void react(Lazy l) {

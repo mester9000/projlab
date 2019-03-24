@@ -23,7 +23,17 @@ public class Orangutan extends Animal {
 	}
 	
 
-	public void step() {
+	public void step(SimpleField s) {
+	    System.out.println("Orangutan.step(simpleField)");
+		if(s.accept(this)){//odaléphet
+			this.mySimpleField.clear();
+			s.setAnimal(this);
+		}
+		else{//nem léphet oda
+		    System.out.println("");
+		    System.out.println("Nem léphettél oda, mert az adott mezőn nem üres");
+        }
+
 	}
 
 }
