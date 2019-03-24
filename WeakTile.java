@@ -4,15 +4,23 @@ import java.io.IOException;
 
 public class WeakTile extends SimpleField {
 	private int lifetime=0;
-	public void dec() {
+
+	public void dec()
+    {
+	    Main.TABULATORS++;
 	    Main.log("WeakTile.dec()");
-	}
+	    Main.TABULATORS--;
+    }
 	public boolean accept(Animal a) {
+	    Main.TABULATORS++;
+	    Main.log("Weaktile.accept(Animal a)");
+	    Main.TABULATORS--;
         return this.myAnimal == null;
     }
 
     @Override
     public void setAnimal(Animal a) {
+	    Main.TABULATORS++;
         a.mySimpleField.clear();
 	    Main.log("Weaktile.setAnimal(Animal a)");
         this.dec();
@@ -26,5 +34,6 @@ public class WeakTile extends SimpleField {
         if(c=='i'){
            a.kill();
         }
+        Main.TABULATORS--;
     }
 }

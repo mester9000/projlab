@@ -34,7 +34,7 @@ public class Main {
         writeConsole("3. Orángután karosszékre lép");
         writeConsole("4. Orángután csokiautomatára lép");
         writeConsole("5. Orángután játékgépre lép");
-        writeConsole("6. Orángután szekrénybe lép");
+        writeConsole("6. Orángután szekrénybe lép");//TODO itt nem a pair-re lép hanem a pair.szomszédra ....
         writeConsole("7. Orángután törékenycsempére lép");
         writeConsole("8. Orángután üres mezőre lép");
         writeConsole("9. Orángután bejáratra lép");
@@ -188,9 +188,11 @@ public class Main {
     private static void orangutanOnExit(){
         map.animals.clear();
         map.simpleFields.clear();
-        map.animals.add(new Orangutan());
+        Orangutan o = new Orangutan();
         map.simpleFields.add(new SimpleField());
         map.simpleFields.add(new Exit());
+        o.EntrancePLace = map.simpleFields.get(1);
+        map.animals.add(o);
         setMap();
         map.animals.get(0).step(map.simpleFields.get(1));
     }
@@ -201,7 +203,7 @@ public class Main {
         map.simpleFields.add(new SimpleField());
         map.simpleFields.add(new Chocolatemachine());
         setMap();
-        //TODO nem tudom hogyan kell indítani +elméletileg egy broadcast indítja de nem tudom hogy hogyan 
+        //TODO nem tudom hogyan kell indítani +elméletileg egy broadcast indítja de nem tudom hogy hogyan
     }
 
     private static void setMap(){
