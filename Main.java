@@ -29,7 +29,7 @@ public class Main {
     }
     private static void orangutanStep(){
         writeConsole("Orángután lépései:\n");
-        writeConsole("1. Orángután pandára lép");
+        writeConsole("1. Orángután pandára lép"); //TODO ez sehogy sem működik :D
         writeConsole("2 .Orángután orángutánra lép");
         writeConsole("3. Orángután karosszékre lép");
         writeConsole("4. Orángután csokiautomatára lép");
@@ -39,22 +39,23 @@ public class Main {
         writeConsole("8. Orángután üres mezőre lép");
         writeConsole("9. Orángután bejáratra lép");
         writeConsole("10.Orángután kijáratra lép");
-        writeConsole("11.Orángután elkap egy pandát(pandára lép)");
-        writeConsole("12.Orángután meghallja a csokiautomatát");
-        writeConsole("13.Orángután meghallja a játékgépet");
-        writeConsole("14.Orángután karosszék közelébe kerül");
+        writeConsole("11.Orángután meghallja a csokiautomatát");
+        writeConsole("12.Orángután meghallja a játékgépet");
+        writeConsole("13.Orángután karosszék közelébe kerül");
 
         c=scanChar();
         switch (c){
-            case 1: orangutanOnPanda();break;
-            case 2: orangutanOnOrangutan();break;
-            case 3: orangutanOnArmchair();break;
-            case 4: orangutanOnChocolatemachine();break;
-            case 5: orangutanOnSlotmachine();break;
-            case 6: orangutanOnCabinet();break;
-            case 7: orangutanOnWeakTile();break;
-            case 8: orangutanOnEmptyField();break;
-            case 9: orangutanOnEntrance();break;
+            case 1:  orangutanOnPanda();break; //TODO nem működik
+            case 2:  orangutanOnOrangutan();break;
+            case 3:  orangutanOnArmchair();break;
+            case 4:  orangutanOnChocolatemachine();break;
+            case 5:  orangutanOnSlotmachine();break;
+            case 6:  orangutanOnCabinet();break;
+            case 7:  orangutanOnWeakTile();break;
+            case 8:  orangutanOnEmptyField();break;
+            case 9:  orangutanOnEntrance();break;
+            case 10: orangutanOnExit();break;
+            case 11: orangutanHearChocolatemachine();break;
         }
     }
     private static void pandaStep(){
@@ -96,7 +97,7 @@ public class Main {
 
 
 
-    private static void orangutanOnPanda(){
+    private static void orangutanOnPanda(){//TODO nem működik
         map.animals.clear();
         map.simpleFields.clear();
         map.animals.add(new Orangutan());
@@ -184,7 +185,24 @@ public class Main {
         setMap();
         map.animals.get(0).step(map.simpleFields.get(1));
     }
-
+    private static void orangutanOnExit(){
+        map.animals.clear();
+        map.simpleFields.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new Exit());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanHearChocolatemachine(){
+        map.animals.clear();
+        map.simpleFields.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new Chocolatemachine());
+        setMap();
+        //TODO nem tudom hogyan kell indítani +elméletileg egy broadcast indítja de nem tudom hogy hogyan 
+    }
 
     private static void setMap(){
         map.simpleFields.get(0).myAnimal = map.animals.get(0);

@@ -14,6 +14,11 @@ public class Orangutan extends Animal {
 	
 
 	public void addPoints() {
+	    Main.log("Orangutan.addPoints()");
+	    this.mySimpleField.clear();
+	    if(this.nextPanda==null){//ha már nincs mögötte panda
+	        //TODO itt most vissza kellene tenni a pályára, de nem ismerjük az entranceot
+        }
 	}
 	
 	public void act(SimpleField s) {
@@ -33,7 +38,7 @@ public class Orangutan extends Animal {
 			s.setAnimal(this);
 		}
 		else{//nem léphet oda
-		    Main.log("Nem léphettél oda, mert az adott mezőn nem üres"); //TODO ha cabinet van akkor ez nem jó,lehet hogy nem leszképernyőre logolva
+		    //Main.log("Nem léphettél oda, mert az adott mezőn nem üres"); //TODO ha cabinet van akkor ez nem jó,lehet hogy nem leszképernyőre logolva
         }
 
 	}
