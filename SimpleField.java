@@ -24,9 +24,10 @@ public class SimpleField {
 	}
 	
 	public void clear() {
-
+            Main.log("SimpleField.clear()");
 	}
 	
 	public void setAnimal(Animal a) {
+	    Main.log("SimpleField.setAnimal(Animal a)");
 	}
 }

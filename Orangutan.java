@@ -20,6 +20,9 @@ public class Orangutan extends Animal {
 	}
 	
 	public void kill() {
+	    Main.log("Orangutan.kill()");
+	    //TODO valahogy meg kellene itt hívni az endgame függvényt, amit ugye nem látunk :/
+
 	}
 	
 
@@ -30,7 +33,7 @@ public class Orangutan extends Animal {
 			s.setAnimal(this);
 		}
 		else{//nem léphet oda
-		    Main.log("Nem léphettél oda, mert az adott mezőn nem üres"); //TODO ha cabinet van akkor ez nem jó
+		    Main.log("Nem léphettél oda, mert az adott mezőn nem üres"); //TODO ha cabinet van akkor ez nem jó,lehet hogy nem leszképernyőre logolva
         }
 
 	}

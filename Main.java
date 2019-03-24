@@ -1,6 +1,5 @@
 package com.company;
 
-import java.lang.annotation.Target;
 import java.util.Scanner;
 
 public class Main {
@@ -39,7 +38,7 @@ public class Main {
         writeConsole("7. Orángután törékenycsempére lép");
         writeConsole("8. Orángután üres mezőre lép");
         writeConsole("9. Orángután bejáratra lép");
-        writeConsole("10. Orángután kijáratra lép");
+        writeConsole("10.Orángután kijáratra lép");
         writeConsole("11.Orángután elkap egy pandát(pandára lép)");
         writeConsole("12.Orángután meghallja a csokiautomatát");
         writeConsole("13.Orángután meghallja a játékgépet");
@@ -53,6 +52,9 @@ public class Main {
             case 4: orangutanOnChocolatemachine();break;
             case 5: orangutanOnSlotmachine();break;
             case 6: orangutanOnCabinet();break;
+            case 7: orangutanOnWeakTile();break;
+            case 8: orangutanOnEmptyField();break;
+            case 9: orangutanOnEntrance();break;
         }
     }
     private static void pandaStep(){
@@ -155,8 +157,33 @@ public class Main {
         setMap();
         map.animals.get(0).step(map.simpleFields.get(1));
     }
-
-
+    private static void orangutanOnWeakTile(){
+        map.animals.clear();
+        map.simpleFields.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new WeakTile());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanOnEmptyField(){
+        map.animals.clear();
+        map.simpleFields.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new SimpleField());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanOnEntrance(){
+        map.animals.clear();
+        map.simpleFields.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new Entrance());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
 
 
     private static void setMap(){
@@ -200,7 +227,5 @@ public class Main {
             System.out.print("\t");
         }
         System.out.print(text+"\n");
-        TABULATORS++;
-
     }
 }
