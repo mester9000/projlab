@@ -92,7 +92,7 @@ import java.util.*;
 	}
 	
 	public void endGame() {
-		if(animals.size() == 0 || simpleFields.size() == 0 || players==0){
+		if(animals.isEmpty() || simpleFields.isEmpty() || players==0){
 			System.out.println("Vege a jateknak"); //TODO ide nem ez kell majd +feltételek nem biztos hogy megfelelőek
 		}
 	}
