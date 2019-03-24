@@ -1,11 +1,11 @@
 
 package com.company;
 
-import com.company.Broadcast;
 
 public class Chocolatemachine extends SimpleField implements Broadcast {
 	public boolean accept(Animal a) {
-		return true;
+	    System.out.println("Chocolatemahine.accept(Animal a)");
+		return false;
 	}
 	
 	public void react(Shy s) {

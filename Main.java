@@ -45,8 +45,12 @@ public class Main {
 
         c=scanChar();
         switch (c){
-            case 1: orangutanOnOrangutan();
-            case 2:
+            case 1: orangutanOnPanda();break;
+            case 2: orangutanOnOrangutan();break;
+            case 3: orangutanOnArmchair();break;
+            case 4: orangutanOnChocolatemachine();break;
+            case 5: orangutanOnSlotmachine();break;
+            case 6: orangutanOnCabinet();break;
         }
     }
     private static void pandaStep(){
@@ -86,6 +90,75 @@ public class Main {
         c = scanChar();
     }
 
+
+
+    private static void orangutanOnPanda(){
+        map.clear();
+        map.animals.add(new Orangutan());
+        map.animals.add(new Lazy());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new SimpleField());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanOnOrangutan(){
+        map.clear();
+        map.animals.add(new Orangutan());
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new SimpleField());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanOnArmchair(){
+        map.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new Armchair());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanOnChocolatemachine(){
+        map.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new Chocolatemachine());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanOnSlotmachine(){
+        map.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        map.simpleFields.add(new Slotmachine());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void orangutanOnCabinet(){
+        map.clear();
+        map.animals.add(new Orangutan());
+        map.simpleFields.add(new SimpleField());
+        Cabinet a = new Cabinet();
+        Cabinet b = new Cabinet();
+        a.pair = b;
+        b.pair = a;
+        map.simpleFields.add(a);
+        map.simpleFields.add(b);
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+
+
+
+
+    private static void setMap(){
+        map.simpleFields.get(0).myAnimal = map.animals.get(0);
+        if(map.animals.size()!=1) {
+            map.simpleFields.get(1).myAnimal = map.animals.get(1);
+        }
+        map.simpleFields.get(0).neighbours.add(map.simpleFields.get(1));
+        map.simpleFields.get(1).neighbours.add(map.simpleFields.get(0));
+    }
     private static void writePandaActs(String pandaSpecies){
         writeConsole(pandaSpecies+" lépései:\n");
         writeConsole("1.  "+pandaSpecies+" orángutánra lép");
@@ -108,19 +181,5 @@ public class Main {
     }
     private static void writeConsole(String text){
         System.out.println(text);
-    }
-    private static void orangutanOnOrangutan(){
-        map.animals.add(new Orangutan());
-        map.animals.add(new Lazy());
-        map.simpleFields.add(new SimpleField());
-        map.simpleFields.add(new SimpleField());
-        setMap();
-        map.animals.get(0).step(map.simpleFields.get(1));
-    }
-    private static void setMap(){
-        map.simpleFields.get(0).myAnimal = map.animals.get(0);
-        map.simpleFields.get(1).myAnimal = map.animals.get(1);
-        map.simpleFields.get(0).neighbours.add(map.simpleFields.get(1));
-        map.simpleFields.get(1).neighbours.add(map.simpleFields.get(0));
     }
 }

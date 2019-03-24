@@ -1,11 +1,16 @@
 package com.company;
 
 
-import com.company.Animal;
-
 public class Cabinet extends SimpleField {
-	private Cabinet pair;
+	public Cabinet pair;
+
 	public boolean accept(Animal a) {
-		return true;
+	    System.out.println("Cabinet.accept.step");
+		return  false;
 	}
+
+    @Override
+    public void setAnimal(Animal a) {
+        pair.setAnimal(a);
+    }
 }
