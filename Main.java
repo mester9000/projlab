@@ -114,11 +114,13 @@ public class Main {
         map.animals.add(new Lazy());
         map.simpleFields.add(new SimpleField());
         map.simpleFields.add(new SimpleField());
+        setMap();
+        map.animals.get(0).step(map.simpleFields.get(1));
+    }
+    private static void setMap(){
         map.simpleFields.get(0).myAnimal = map.animals.get(0);
         map.simpleFields.get(1).myAnimal = map.animals.get(1);
         map.simpleFields.get(0).neighbours.add(map.simpleFields.get(1));
         map.simpleFields.get(1).neighbours.add(map.simpleFields.get(0));
-        map.animals.get(0).step(map.simpleFields.get(1));
-
     }
 }

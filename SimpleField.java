@@ -7,6 +7,7 @@ public class SimpleField {
 	protected Animal myAnimal=null; //kezdetben semelyik fielden nem áll állat
 	protected ArrayList<SimpleField> neighbours =new ArrayList<>();
 	public boolean accept(Animal a) {
+	    System.out.println("SimpleField.accept(Animal)");
 		return this.myAnimal == null;
 	}
 	

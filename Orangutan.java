@@ -30,7 +30,6 @@ public class Orangutan extends Animal {
 			s.setAnimal(this);
 		}
 		else{//nem léphet oda
-		    System.out.println("");
 		    System.out.println("Nem léphettél oda, mert az adott mezőn nem üres");
         }
 
