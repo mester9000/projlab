@@ -28,6 +28,7 @@ public class WeakTile extends SimpleField {
         char c=0;
         try {
             c = (char) System.in.read();
+            System.in.read();
         } catch (IOException e) {
             e.printStackTrace();
         }

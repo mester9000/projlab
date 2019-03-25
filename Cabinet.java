@@ -17,7 +17,7 @@ public class Cabinet extends SimpleField {
     public void setAnimal(Animal a) {
         Main.TABULATORS++;
 	    super.setAnimal(a);
-        Main.log("Cabinet.pair.setAnimal(Animal a)");
+        Main.log("Cabinet.pair.neighbours[random].setAnimal(Animal a)");
         Main.TABULATORS--;
 	}
 }

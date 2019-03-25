@@ -15,21 +15,25 @@ public class SimpleField {
 	
 	public void react(Lazy l) {
 	    Main.TABULATORS++;
+	    Main.log("SimpleField.react(Lazy l");
 	    Main.TABULATORS--;
 	}
 	
 	public void react(Shy s) {
         Main.TABULATORS++;
+        Main.log("SimpleField.react(Shy s");
         Main.TABULATORS--;
 	}
 	
 	public void react(Scary s) {
         Main.TABULATORS++;
+        Main.log("SimpleField.react(Scary s)");
         Main.TABULATORS--;
 	}
 	
 	public void react(Orangutan o) {
         Main.TABULATORS++;
+        Main.log("SimpleField.react(Orangutan o)");
         Main.TABULATORS--;
 	}
 	

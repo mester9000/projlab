@@ -8,10 +8,10 @@ public class Map extends SimpleField {
 	private int players;
 	public ArrayList<Animal> animals= new ArrayList<>();
 	public ArrayList<SimpleField> simpleFields = new ArrayList<>();
-	public void init(int Player,int SimpleFiled,int Animals) {
+	public void init(int Player,int SimpleFiled,int Animals) {//a skeleton vázban erre nincsen szükség
 		players = Player;
 		int r;
-		for(int i=0;i<Animals;i++){//TODO ez a feltöltés nem a legszebb
+		for(int i=0;i<Animals;i++){
 			r=(int)(Math.random()*3);
 			if(r==0) {
 				animals.add(new Scary());
@@ -24,7 +24,7 @@ public class Map extends SimpleField {
 			}
 		}
 
-		for(int i =0; i<SimpleFiled;i++){//TODO itt sem
+		for(int i =0; i<SimpleFiled;i++){
 			r=(int)(Math.random()*7);
 			if(r==0){
 				simpleFields.add(new Chocolatemachine());
@@ -42,13 +42,11 @@ public class Map extends SimpleField {
 		for (int i=0;i<players;i++){
 			animals.add(new Orangutan());
 		}
-		//TODO valahgyan be kell állítani, a szomszédokat is majd.
-		//TODO az állatokat rá kell tenni a pályára
-
 	}
 	
 	public void endGame() {
         Main.TABULATORS++;
+        Main.log("Map.endGame()");
         Main.TABULATORS--;
 	}
 }
